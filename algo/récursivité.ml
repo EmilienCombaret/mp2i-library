@@ -25,3 +25,30 @@ let rec euclide a b =
     if b = 0 then a  (* le PGCD est le dernier reste non nul *)
     else euclide b (a mod b);;
 let () = assert (euclide 21 6 = 3)
+
+let rec fact n = 
+    if n = 0 then 1
+    else n*fact (n - 1);;
+
+let rec taille l = match l with
+    | [] -> 0
+    | e::q -> 1 + taille q;;
+
+let rec somme = function
+    | [] -> 0.
+    | e::q -> e +. somme q;;
+
+let moyenne l = (somme l) /. (float_of_int (taille l));;
+
+let rec oppose = function
+    | [] -> []
+    | e::q -> (-e)::oppose q;;
+
+let rec positif = function
+    | [] -> true
+    | e::q -> e >= 0 && positif q;;
+
+let rec dernier = function
+    | [] -> failwith "Pas de dernier élément"
+    | [e] -> e
+    | _::q -> dernier q
