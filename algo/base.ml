@@ -5,7 +5,6 @@ let h x y z = x (3. *. (y z)) + 1
 let tanh x =
     let e = exp x in
     (e -. 1./.e)/.(e +. 1./.e);;
-tanh 1. (* test *)
 
 let p = (2.1, 3.7) in (* exemple de point *)
 let x, y = p in (* récupération des coordonnées *)
